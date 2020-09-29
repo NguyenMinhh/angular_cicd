@@ -17,7 +17,7 @@ phases:
   pre_build:
     commands:
       - echo installing dependencies...
-      - echo env.variables.SOURCE_FOLDER_NAME
+      - echo `env.variables.SOURCE_FOLDER_NAME`
       - cd ./angular-cicd-demo
       - npm i -g @angular/cli
       - npm install
