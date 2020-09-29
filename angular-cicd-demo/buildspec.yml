@@ -1,4 +1,4 @@
-version: 0.1
+version: 0.2
 
 phases:
   install:
@@ -13,9 +13,8 @@ phases:
   pre_build:
     commands:
       - echo installing dependencies...
-      #- cd $CODEBUILD_SRC_DIR
-      #- cd /angular-cicd-demo
-      - echo $CODEBUILD_SRC_DIR_source1
+      - cd ./angular-cicd-demo
+      - echo $CODEBUILD_SRC_DIR
       - npm i -g @angular/cli
       - npm install
   build:
@@ -25,9 +24,6 @@ phases:
       - ng build
 artifacts:
   files:
-    - '**/*'
-  secondary-artifacts:
-    artifact1:
-      name: $CODEBUILD_SRC_DIR_source1
-      files:
-        - 'angular-cicd-demo/*'
+    - "**/*"
+  discard-paths: yes
+  base-directory: angular-cicd-demo/dist/angular-cicd-demo
