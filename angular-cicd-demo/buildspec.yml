@@ -14,7 +14,7 @@ phases:
     commands:
       - echo installing dependencies...
       - cd $CODEBUILD_SRC_DIR
-      - cd \angular-cicd-demo
+      - cd /angular-cicd-demo
       - echo $CODEBUILD_SRC_DIR
       - npm i -g @angular/cli
       - npm install
@@ -23,7 +23,7 @@ phases:
       # - echo testing...
       # - echo building...
       - cd $CODEBUILD_SRC_DIR
-      - cd \angular-cicd-demo
+      - cd /angular-cicd-demo
       - ng build
 artifacts:
   files:
