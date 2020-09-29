@@ -22,6 +22,8 @@ phases:
     commands:
       # - echo testing...
       # - echo building...
+      - cd $CODEBUILD_SRC_DIR
+      - cd \angular-cicd-demo
       - ng build
 artifacts:
   files:
