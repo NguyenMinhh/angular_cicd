@@ -13,6 +13,7 @@ phases:
   pre_build:
     commands:
       - echo installing dependencies...
+      - cd angular-cicd-demo
       - npm i -g @angular/cli
       - npm install
   build:
