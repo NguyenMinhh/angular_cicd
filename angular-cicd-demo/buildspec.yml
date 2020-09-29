@@ -14,7 +14,6 @@ phases:
     commands:
       - echo installing dependencies...
       - cd ./angular-cicd-demo
-      - echo $CODEBUILD_SRC_DIR
       - npm i -g @angular/cli
       - npm install
   build:
@@ -22,8 +21,15 @@ phases:
       # - echo testing...
       # - echo building...
       - ng build
+
+  post_build:
+    commands:
+      # Clear S3 bucket
+      - aws s3 rm s3://angular-dvlpm/* --recursive
+      - echo S3 bucket is cleared.
+
 artifacts:
   files:
     - "**/*"
   discard-paths: yes
-  base-directory: angular-cicd-demo/dist/angular-cicd-demo 
+  base-directory: angular-cicd-demo/dist/angular-cicd-demo
